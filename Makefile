@@ -1,11 +1,12 @@
-CC= g++
-PATH=source/
-PROGS= algo.ex stat.ex
+CC=g++
+FLAGS=-std=c++11
+SOURCEDIR=source/
+PROGS=algo.ex stat.ex
 
 all: $(PROGS)
 
-algo.ex: $(PATH)algo.cc
-	$(CC) $^ -o $@
+algo.ex: $(SOURCEDIR)algo.cc
+	$(CC) $(FLAGS) $^ -o $@
 
-stat.ex: $(PATH)stat.cc
-	$(CC) $^ -o $@
+stat.ex: $(SOURCEDIR)stat.cc
+	$(CC) $(FLAGS) $^ -o $@
