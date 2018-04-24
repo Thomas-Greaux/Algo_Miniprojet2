@@ -10,3 +10,6 @@ algo.ex: $(SOURCEDIR)algo.cc
 
 stat.ex: $(SOURCEDIR)stat.cc
 	$(CC) $(FLAGS) $^ -o $@
+
+clean:
+	rm -f $(PROGS)
