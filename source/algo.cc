@@ -12,7 +12,6 @@ int main()
 	string filename = "./exemples/exemple1.txt";
 	Parser parser;
 	Graph graph = parser.parse(filename);
-        cout << "nb vertex : " << graph.get_nb_vertex() << endl << "nb edges : " << graph.get_nb_edge() << 
-endl;
+	graph.print();
 	return 0;
 }

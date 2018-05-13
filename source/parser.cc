@@ -9,10 +9,17 @@ Graph Parser::parse(string filename) const
 	ifile.open(filename);
 	ifile >> vertex;
 	ifile >> edge;
+
+	Graph res(vertex, edge);
+
+	int v1, v2;
+	while(ifile >> v1)
+	{
+		ifile >> v2;
+		res.add_edge(v1, v2);
+	}
 	ifile.close();
 
-	cout << "filename : " << filename << endl;
 	
-	Graph res(vertex, edge);
 	return res;
 }
