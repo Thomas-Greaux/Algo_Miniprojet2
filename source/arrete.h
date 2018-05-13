@@ -1,3 +1,6 @@
+#ifndef _ARRETE_H_
+#define _ARRETE_H_
+
 class Arrete {
 
 	public:
@@ -14,3 +17,5 @@ class Arrete {
 	int poids;
 
 };
+
+#endif
