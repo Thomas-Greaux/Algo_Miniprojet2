@@ -9,20 +9,20 @@ Arrete::Arrete(int sommet1, int sommet2) : sommet1(sommet1), sommet2(sommet2), p
 
 
 
-int getSommet1(){
+int Arrete::getSommet1(){
 	cout<<"yo!"<<endl;
 	return sommet1;
 }	
 
-int getSommet2(){
+int Arrete::getSommet2(){
 	return sommet2;
 }
 
-int getPoids(){
+int Arrete::getPoids(){
 	return poids;
 }
 	
-bool checkArrete(Arrete &arrete){
+bool Arrete::checkArrete(Arrete &arrete){
 	if(arrete.getSommet1() == sommet1 || arrete.getSommet1() == sommet2 || arrete.getSommet2() == sommet1 || arrete.getSommet2() == sommet2){
 		return true;
 	}
