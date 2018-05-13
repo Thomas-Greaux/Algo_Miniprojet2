@@ -42,16 +42,24 @@ void Graph::print() const
 	}
 }
 
-vector<int> Graph::get_aleat_vertice() {
+vector<int> Graph::get_aleat_vertice() const
+{
 	srand(time(NULL));
-    int nb_aleat_row = rand()%nb_vertex;
-	int nb_aleat_col = rand()%nb_vertex; 
-	cout << nb_aleat_row << "et" << nb_aleat_col << endl; 
-	vector<int> tableau;
-	tableau.push_back(nb_aleat_row);
-	tableau.push_back(nb_aleat_col);
-	return tableau;
+	int v1;
+	int v2;
+
+	do
+	{
+		v1 = rand()%nb_vertex;
+		v2 = rand()%nb_vertex; 
+	} while(v1 == v2); //make sure we don't contract the same vertex
+	cout << "Contracting " << v1 << " and " << v2 << endl; 
 	
+
+	vector<int> tableau;
+	tableau.push_back(v1);
+	tableau.push_back(v2);
+	return tableau;
 }
 
 void Graph::contract(int v1, int v2)
@@ -75,7 +83,7 @@ void Graph::contract(int v1, int v2)
 	{
 		if(matrix_adj[i][i] != 0)
 		{
-			nb_edge--;
+			nb_edge -= matrix_adj[i][i];
 			matrix_adj[i][i] = 0;
 		}
 	}
