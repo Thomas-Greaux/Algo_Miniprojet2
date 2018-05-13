@@ -41,3 +41,25 @@ void Graph::print() const
 		cout << endl;
 	}
 }
+
+void Graph::contract(int v1, int v2)
+{
+	if(v1 == v2) return;
+	if(v2 < v1)
+	{
+		int tmp = v2;
+		v2 = v1;
+		v1 = tmp;
+	}
+	//v1 < v2
+	for(int i = 0; i < nb_vertex; i++)
+	{
+		matrix_adj[v1][i] += matrix_adj[v2][i];
+	}
+	for(int i = 0; i < nb_vertex; i++)
+	{
+		matrix_adj[i].erase(matrix_adj[i].begin()+v2);
+	}
+	matrix_adj.erase(matrix_adj.begin()+v2);
+	nb_vertex--;
+}

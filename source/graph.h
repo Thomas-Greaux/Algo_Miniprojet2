@@ -13,6 +13,7 @@ class Graph
 		int get_nb_edge() const;
 		void add_edge(int v1, int v2);
 		void print() const;
+		void contract(int v1, int v2);
 
 	private:
 		int nb_vertex;
