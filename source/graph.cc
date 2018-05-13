@@ -61,6 +61,10 @@ void Graph::contract(int v1, int v2)
 
 	for(int i =0; i < nb_vertex; i++)
 	{
-		matrix_adj[i][i] = 0;
+		if(matrix_adj[i][i] != 0)
+		{
+			nb_edge--;
+			matrix_adj[i][i] = 0;
+		}
 	}
 }
