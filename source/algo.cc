@@ -5,14 +5,39 @@
 
 using namespace std;
 
+Graph delete_edge(Graph graph){
+	vector<int> tab = graph.get_aleat_vertice();
+	graph.contract(tab[0],tab[1]);
+	graph.print();
+	return graph;
+}
 
-void classique(Graph graph){
+int classique(Graph graph){
 	while(graph.get_nb_vertex() > 2){
-		vector<int> tab = graph.get_aleat_vertice();
-		graph.contract(tab[0],tab[1] );
-		graph.print();
+		graph = delete_edge(graph);
+	}
+	return graph.get_weight_at_the_end();
+}
+
+int karger_stein(Graph graph){
+	int vertex_max = graph.get_nb_edge()*(pow(2,-0.5));
+	while(graph.get_nb_vertex() > vertex_max){
+		graph = delete_edge(graph);
+	}
+	vector<int> tab;
+	for(int i = 0; i < 2; i++){
+		int weight = classique(graph);
+		tab.push_back(weight);
+	}
+	if(tab[0] < tab[1]){
+		return tab[0];
+	}
+	else{
+		return tab[1];
 	}
 }
+
+
 
 int main()
 {
@@ -29,7 +54,13 @@ int main()
 
 	graph.get_aleat_vertice();
 
-	classique(graph);
+	int x = classique(graph);
+	cout << "CLASSIQUE : " << x << endl;
+	x = karger_stein(graph);
+	cout << "KARGER : " << x << endl;
+
+	
+	
 
 	/*cout << "Generation de 4 exemples..." << endl;
 	Generator generator;

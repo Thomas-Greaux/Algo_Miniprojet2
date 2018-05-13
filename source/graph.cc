@@ -14,6 +14,10 @@ void Graph::add_edge(int v1, int v2)
 	matrix_adj[v2][v1] = 1;
 }
 
+int Graph::get_weight_at_the_end() const{
+	return matrix_adj[0][1];
+}
+
 int Graph::get_nb_vertex() const
 {
 	return nb_vertex;

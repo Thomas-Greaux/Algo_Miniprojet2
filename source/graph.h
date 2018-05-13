@@ -15,6 +15,7 @@ class Graph
 		void print() const;
 		void contract(int v1, int v2);
 		vector<int> get_aleat_vertice() const;
+		int get_weight_at_the_end() const;
 
 	private:
 		int nb_vertex;
