@@ -42,6 +42,18 @@ void Graph::print() const
 	}
 }
 
+vector<int> Graph::get_aleat_vertice() {
+	srand(time(NULL));
+    int nb_aleat_row = rand()%nb_vertex;
+	int nb_aleat_col = rand()%nb_vertex; 
+	cout << nb_aleat_row << "et" << nb_aleat_col << endl; 
+	vector<int> tableau;
+	tableau.push_back(nb_aleat_row);
+	tableau.push_back(nb_aleat_col);
+	return tableau;
+	
+}
+
 void Graph::contract(int v1, int v2)
 {
 	if(v1 == v2) return;

@@ -14,6 +14,7 @@ class Graph
 		void add_edge(int v1, int v2);
 		void print() const;
 		void contract(int v1, int v2);
+		vector<int> get_aleat_vertice();
 
 	private:
 		int nb_vertex;

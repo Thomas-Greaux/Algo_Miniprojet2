@@ -5,6 +5,15 @@
 
 using namespace std;
 
+
+void classique(Graph graph){
+	while(graph.get_nb_vertex() > 2){
+		vector<int> tab = graph.get_aleat_vertice();
+		graph.contract(tab[0],tab[1] );
+		graph.print();
+	}
+}
+
 int main()
 {
 	string filename = "./exemples/exemple1.txt";
@@ -18,11 +27,17 @@ int main()
 	cout << "Apres contraction de 1 et 3 :" << endl;
 	graph.print();
 
-	cout << "Generation de 4 exemples..." << endl;
+	graph.get_aleat_vertice();
+
+	classique(graph);
+
+	/*cout << "Generation de 4 exemples..." << endl;
 	Generator generator;
 	for(int i = 0; i < 4; i++)
 	{
 		generator.generate_exemple(0.2);
-	}
+	}*/
 	return 0;
 }
+
+
