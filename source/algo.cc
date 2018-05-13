@@ -1,9 +1,11 @@
 #include <iostream>
+#include "arrete.h"
 
 using namespace std;
 
 int main()
 {
-	cout << "hello from algo" << endl;
+	Arrete arrete(1,2);
+	arrete.getSommet1();
 	return 0;
 }
