@@ -11,6 +11,11 @@ int main()
 	cout << "Parsing de l'exemple : " << endl;
 	Parser parser;
 	Graph graph = parser.parse(filename);
+
+	graph.print();
+	graph.contract(1, 3);
+	
+	cout << "Apres contraction de 1 et 3 :" << endl;
 	graph.print();
 
 	cout << "Generation de 4 exemples..." << endl;

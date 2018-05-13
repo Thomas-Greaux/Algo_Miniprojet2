@@ -35,7 +35,7 @@ void Graph::print() const
 		{
 			if(matrix_adj[i][j] != 0)
 			{
-				cout << j << " ";
+				cout << j << "(" << matrix_adj[i][j] << ") ";
 			}
 		}
 		cout << endl;
@@ -45,21 +45,22 @@ void Graph::print() const
 void Graph::contract(int v1, int v2)
 {
 	if(v1 == v2) return;
-	if(v2 < v1)
-	{
-		int tmp = v2;
-		v2 = v1;
-		v1 = tmp;
-	}
-	//v1 < v2
 	for(int i = 0; i < nb_vertex; i++)
 	{
 		matrix_adj[v1][i] += matrix_adj[v2][i];
+		matrix_adj[i][v1] = matrix_adj[v1][i];
 	}
+
+	//Deletions
 	for(int i = 0; i < nb_vertex; i++)
 	{
 		matrix_adj[i].erase(matrix_adj[i].begin()+v2);
 	}
 	matrix_adj.erase(matrix_adj.begin()+v2);
 	nb_vertex--;
+
+	for(int i =0; i < nb_vertex; i++)
+	{
+		matrix_adj[i][i] = 0;
+	}
 }
