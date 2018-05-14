@@ -16,10 +16,12 @@ class Graph
 		void contract(int v1, int v2);
 		vector<int> get_aleat_vertice() const;
 		int get_weight_at_the_end() const;
+        int get_nb_contractions() const;
 
 	private:
 		int nb_vertex;
 		int nb_edge;
+        int nb_contractions = 0;
 		vector<vector<int>> matrix_adj;
 };
 

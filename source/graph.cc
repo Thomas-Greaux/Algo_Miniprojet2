@@ -91,4 +91,11 @@ void Graph::contract(int v1, int v2)
 			matrix_adj[i][i] = 0;
 		}
 	}
+    
+    nb_contractions++;
+}
+
+int Graph::get_nb_contractions() const
+{
+    return nb_contractions;
 }

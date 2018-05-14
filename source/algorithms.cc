@@ -6,7 +6,7 @@ using namespace std;
 Graph Algorithms::delete_edge(Graph graph){
 	vector<int> tab = graph.get_aleat_vertice();
 	graph.contract(tab[0],tab[1]);
-	graph.print();
+	//graph.print();
 	return graph;
 }
 
