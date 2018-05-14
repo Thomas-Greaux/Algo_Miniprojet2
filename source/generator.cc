@@ -17,23 +17,20 @@ void Generator::generate_exemple(double proba) const
 	int connected = 0;
 	for(int i = 0; i < nb_vertex; i++)
 	{
+        connected = 0;
 		for(int j = i+1; j < nb_vertex; j++)
 		{
-			connected = 0;
 			draw = distribution_r(generator);
+            
 			if(draw < proba)
 			{
 				edges.push_back(vector<int> {i, j});
 				connected = 1;
 			}
 		}
-		if(!connected) //We make sure each vertex is connected
+		if(!connected && i != 0) //We make sure each vertex is connected
 		{
-			int connector = 0;
-			do
-			{
-				connector = distribution_i(generator);
-			} while(connector >= nb_vertex || connector == i);
+			int connector = distribution_i(generator) % i;
 			edges.push_back(vector<int> {i, connector});
 		}
 	}
