@@ -6,7 +6,7 @@ void Generator::generate_exemple(double proba) const
 	string filename = "./exemples/g_exemple" + to_string(num) + ".txt";
 	ofstream ofile(filename);
 
-	uniform_int_distribution<int> distribution_i(0, 9);
+	uniform_int_distribution<int> distribution_i(3, 11);
 	uniform_real_distribution<double> distribution_r(0.0,1.0);
 	unsigned seed = chrono::system_clock::now().time_since_epoch().count();
 	default_random_engine generator(seed);

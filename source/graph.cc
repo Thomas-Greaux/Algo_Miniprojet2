@@ -57,7 +57,9 @@ vector<int> Graph::get_aleat_vertice() const
 		v1 = rand()%nb_vertex;
 		v2 = rand()%nb_vertex; 
 	} while(v1 == v2); //make sure we don't contract the same vertex
-	cout << "Contracting " << v1 << " and " << v2 << endl; 
+
+	/*You can display the contractions using the next line*/
+	//cout << "Contracting " << v1 << " and " << v2 << endl; 
 	
 
 	vector<int> tableau;
