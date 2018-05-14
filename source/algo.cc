@@ -19,22 +19,43 @@ int classique(Graph graph){
 	return graph.get_weight_at_the_end();
 }
 
-int karger_stein(Graph graph){
-	int vertex_max = graph.get_nb_edge()*(pow(2,-0.5));
-	while(graph.get_nb_vertex() > vertex_max){
+vector<int> karger_stein_general(Graph graph, int edge_max, int number_of_iterations){
+	while(graph.get_nb_vertex() > edge_max){
 		graph = delete_edge(graph);
 	}
 	vector<int> tab;
-	for(int i = 0; i < 2; i++){
+	for(int i = 0; i < number_of_iterations; i++){
 		int weight = classique(graph);
 		tab.push_back(weight);
 	}
+	return tab;
+	
+}
+
+int karger_stein(Graph graph){
+	int edge_max = graph.get_nb_edge()*(pow(2,-0.5));
+	vector<int> tab = karger_stein_general(graph, edge_max, 2);
 	if(tab[0] < tab[1]){
 		return tab[0];
 	}
 	else{
 		return tab[1];
 	}
+	
+}
+
+int karger_stein_persalized(Graph graph){
+	int edge_max = graph.get_nb_edge();
+	int nbr_of_iterations = 3;
+	int tmp = graph.get_nb_vertex(); 
+	vector<int> tab = karger_stein_general(graph, edge_max, nbr_of_iterations);
+	for(int i = 0; i < nbr_of_iterations; i++){
+		if(tab[i] < tmp){
+			tmp = tab[i];
+		}
+	}
+	return tmp;
+	
 }
 
 
@@ -59,7 +80,8 @@ int main()
 	cout << "CLASSIQUE : " << x << endl;
 	x = karger_stein(graph);
 	cout << "KARGER : " << x << endl;
-
+	x = karger_stein_persalized(graph);
+	cout << "KARGER PERSO : " << x << endl;
 	
 	
 
