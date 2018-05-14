@@ -48,7 +48,7 @@ void Graph::print() const
 
 vector<int> Graph::get_aleat_vertice() const
 {
-	srand(time(NULL));
+	
 	int v1;
 	int v2;
 

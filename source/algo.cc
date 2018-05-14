@@ -41,6 +41,7 @@ int karger_stein(Graph graph){
 
 int main()
 {
+	srand(time(NULL));
 	string filename = "./exemples/exemple1.txt";
 	cout << "Parsing de l'exemple : " << endl;
 	Parser parser;
