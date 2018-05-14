@@ -45,7 +45,7 @@ int karger_stein(Graph graph){
 }
 
 int karger_stein_persalized(Graph graph){
-	int edge_max = graph.get_nb_edge();
+	int edge_max = graph.get_nb_edge()/(1.1);
 	int nbr_of_iterations = 3;
 	int tmp = graph.get_nb_vertex(); 
 	vector<int> tab = karger_stein_general(graph, edge_max, nbr_of_iterations);
