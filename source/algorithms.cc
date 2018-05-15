@@ -3,17 +3,16 @@
 
 using namespace std;
 
-Graph Algorithms::delete_edge(Graph* graph){
+void Algorithms::delete_edge(Graph* graph){
 	vector<int> tab = graph->get_aleat_vertice();
 	graph->contract(tab[0],tab[1]);
-	return *graph;
 }
 
 //Classique algorithm
 vector<int> Algorithms::classique(Graph graph){
 	vector<int> solution_contractions;
 	while(graph.get_nb_vertex() > 2){
-		graph = delete_edge(&graph);
+		delete_edge(&graph);
 	}
 	solution_contractions.push_back(graph.get_weight_at_the_end());
 	solution_contractions.push_back(graph.get_nb_contractions());
@@ -23,7 +22,7 @@ vector<int> Algorithms::classique(Graph graph){
 
 vector<int> Algorithms::karger_stein_general(Graph* graph, int edge_max, int number_of_iterations){
 	while(graph->get_nb_vertex() > edge_max){
-		*graph = delete_edge(graph);
+		delete_edge(graph);
 	}
 	vector<int> tab;
 	for(int i = 0; i < number_of_iterations; i++){
