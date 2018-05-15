@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
 	srand(time(NULL));
-	string filename = "./exemples/exemple1.txt";
+	string filename = "./exemples/g_exemple0.txt";
 	cout << "Parsing de l'exemple : " << endl;
 	Algorithms algorithms;
     	Parser parser;
@@ -18,12 +18,12 @@ int main()
 	graph.print();
 
 
-	int x = algorithms.classique(graph);
-	cout << "CLASSIQUE : " << x << endl;
+	vector<int> x = algorithms.classique(graph);
+	cout << "CLASSIQUE : " << x[0] << endl;
 	x = algorithms.karger_stein(graph);
-	cout << "KARGER : " << x << endl;
+	cout << "KARGER : " << x[0] << endl;
 	x = algorithms.karger_stein_persalized(graph);
-	cout << "KARGER PERSO : " << x << endl;
+	cout << "KARGER PERSO : " << x[0] << endl;
 
 	return 0;
 }
