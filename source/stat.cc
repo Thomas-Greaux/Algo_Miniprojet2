@@ -27,6 +27,10 @@ int main()
 	int karger = 0;
 	int karger_persalized = 0;
 
+	int nb_contractions_classique = 0;
+	int nb_contractions_karger = 0;
+	int nb_contractions_karger_perso = 0;
+
 	for(int i = 0; i < 5; i++)
 	{
 		cout << "generating exemple #" << i << endl;
@@ -39,18 +43,24 @@ int main()
 		int nb_min_karger_stein_persalized = 0;
 
 		for(int j = 0; j < 100; j++){
-    	    int x = algorithms.classique(*graph);
-    	    int y = algorithms.karger_stein(*graph);
-    	    int z = algorithms.karger_stein_persalized(*graph);
-			if(minimum > min(x, y, z)){
-				minimum = min(x, y, z);
+    	    vector<int> x = algorithms.classique(*graph);
+    	    vector<int> y = algorithms.karger_stein(*graph);
+    	    vector<int> z = algorithms.karger_stein_persalized(*graph);
+			if(minimum > min(x[0], y[0], z[0])){
+				minimum = min(x[0], y[0], z[0]);
 				nb_min_classique = 0;
 				nb_min_karger_stein = 0;
 				nb_min_karger_stein_persalized = 0;
 			}
-			if(minimum == x) nb_min_classique++;
-			if(minimum == y) nb_min_karger_stein++;
-			if(minimum == z) nb_min_karger_stein_persalized++;
+			if(minimum == x[0]) nb_min_classique++;
+			if(minimum == y[0]) nb_min_karger_stein++;
+			if(minimum == z[0]) nb_min_karger_stein_persalized++;
+			
+			nb_contractions_classique += x[1];
+			nb_contractions_karger += y[1];
+			nb_contractions_karger_perso += z[1];
+
+
 		}
 		cout << "La coupe minimum est de : " << minimum << endl;
 		cout << "CLASSIQUE : " << nb_min_classique << "/100" << endl;
@@ -88,6 +98,8 @@ int main()
 		}
 	}
 	
-
+	cout << "Classique = " << nb_contractions_classique << " contractions." << endl;
+	cout << "Karger = " << nb_contractions_karger << " contractions." << endl;
+	cout << "Karger perso = " << nb_contractions_karger_perso << " contractions." << endl;
 	return 0;
 }
