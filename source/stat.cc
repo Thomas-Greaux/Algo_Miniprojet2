@@ -18,8 +18,6 @@ int min (int x, int y, int z) {
 
 int main()
 {
-	
-
     Algorithms algorithms;
 	Generator generator;
 	Parser parser;
@@ -62,9 +60,7 @@ int main()
 			nb_contractions_karger += y[1];
 			nb_contractions_karger_perso += z[1];
 
-			/*
-    	    delete graph;
-			graph = nullptr;*/
+
 		}
 		cout << "La coupe minimum est de : " << minimum << endl;
 		cout << "CLASSIQUE : " << nb_min_classique << "/100" << endl;
@@ -75,6 +71,8 @@ int main()
 		karger += nb_min_karger_stein;
 		karger_persalized += nb_min_karger_stein_persalized;
 
+        delete graph;
+		graph = nullptr;
 	}
 	
 	if(karger_persalized >= karger){
