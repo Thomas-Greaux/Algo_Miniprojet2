@@ -27,9 +27,6 @@ int main()
 	int karger = 0;
 	int karger_persalized = 0;
 
-	int nb_contractions_classique = 0;
-	int nb_contractions_karger = 0;
-	int nb_contractions_karger_perso = 0;
 
 	for(int i = 0; i < 5; i++)
 	{
@@ -55,11 +52,6 @@ int main()
 			if(minimum == x[0]) nb_min_classique++;
 			if(minimum == y[0]) nb_min_karger_stein++;
 			if(minimum == z[0]) nb_min_karger_stein_persalized++;
-			
-			nb_contractions_classique += x[1];
-			nb_contractions_karger += y[1];
-			nb_contractions_karger_perso += z[1];
-
 
 		}
 		cout << "La coupe minimum est de : " << minimum << endl;
@@ -98,8 +90,5 @@ int main()
 		}
 	}
 	
-	cout << "Classique = " << nb_contractions_classique << " contractions." << endl;
-	cout << "Karger = " << nb_contractions_karger << " contractions." << endl;
-	cout << "Karger perso = " << nb_contractions_karger_perso << " contractions." << endl;
 	return 0;
 }
